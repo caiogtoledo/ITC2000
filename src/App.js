@@ -4,30 +4,13 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ArrowButton from "./components/arrowButton";
+import { ControllContext } from "./context/controllContex";
 
 function App() {
-  const initialState = {
-    forward: false,
-    right: false,
-    back: false,
-    left: false,
-  };
-
-  const [arrowsStates, setArrowsStates] = useState(initialState);
-  const [speed, setSpeed] = useState(0);
-
-  function changeDirection(direction) {
-    if (arrowsStates[direction]) {
-      setArrowsStates(initialState);
-    } else {
-      let newState = { ...initialState };
-      newState[direction] = true;
-      setArrowsStates(newState);
-    }
-  }
-
+  const { arrowsStates, speed, changeDirection, setSpeed } =
+    useContext(ControllContext);
   return (
     <div
       style={{
