@@ -33,7 +33,6 @@ function App() {
       <div className="App">
         <div
           onClick={() => {
-            console.log("aaa");
             changeDirection("forward");
           }}
         >
