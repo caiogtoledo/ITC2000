@@ -29,7 +29,17 @@ function App() {
   }
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignContent: "center",
+        alignSelf: "center",
+        height: "80vh",
+      }}
+    >
       <div className="App">
         <div
           onClick={() => {
@@ -37,25 +47,25 @@ function App() {
           }}
         >
           <ArrowButton isSelected={arrowsStates.forward}>
-            <KeyboardArrowUpIcon sx={{ fontSize: 180 }} />
+            <KeyboardArrowUpIcon sx={{ fontSize: 100 }} />
           </ArrowButton>
         </div>
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <div onClick={() => changeDirection("left")}>
             <ArrowButton isSelected={arrowsStates.left}>
-              <KeyboardArrowLeftIcon sx={{ fontSize: 180 }} />
+              <KeyboardArrowLeftIcon sx={{ fontSize: 100 }} />
             </ArrowButton>
           </div>
 
           <div onClick={() => changeDirection("right")}>
             <ArrowButton isSelected={arrowsStates.right}>
-              <KeyboardArrowRightIcon sx={{ fontSize: 180 }} />
+              <KeyboardArrowRightIcon sx={{ fontSize: 100 }} />
             </ArrowButton>
           </div>
         </div>
         <div onClick={() => changeDirection("back")}>
           <ArrowButton isSelected={arrowsStates.back}>
-            <KeyboardArrowDownIcon sx={{ fontSize: 180 }} />
+            <KeyboardArrowDownIcon sx={{ fontSize: 100 }} />
           </ArrowButton>
         </div>
       </div>

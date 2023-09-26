@@ -7,8 +7,8 @@ function ArrowButton({ children, isSelected }) {
       <div
         style={{
           backgroundColor: isSelected ? "#f00" : "#fff",
-          width: "180px",
-          borderRadius: "90px",
+          width: "100px",
+          borderRadius: "50px",
         }}
       >
         {children}
