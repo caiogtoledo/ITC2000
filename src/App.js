@@ -1,23 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useContext, useState } from "react";
+import ArrowButton from "./components/arrowButton";
+import { ControllContext } from "./context/controllContex";
 
 function App() {
+  const { arrowsStates, speed, changeDirection, setSpeed } =
+    useContext(ControllContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignContent: "center",
+        alignSelf: "center",
+        height: "80vh",
+      }}
+    >
+      <div className="App">
+        <div
+          onClick={() => {
+            changeDirection("forward");
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <ArrowButton isSelected={arrowsStates.forward}>
+            <KeyboardArrowUpIcon sx={{ fontSize: 100 }} />
+          </ArrowButton>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <div onClick={() => changeDirection("left")}>
+            <ArrowButton isSelected={arrowsStates.left}>
+              <KeyboardArrowLeftIcon sx={{ fontSize: 100 }} />
+            </ArrowButton>
+          </div>
+
+          <div onClick={() => changeDirection("right")}>
+            <ArrowButton isSelected={arrowsStates.right}>
+              <KeyboardArrowRightIcon sx={{ fontSize: 100 }} />
+            </ArrowButton>
+          </div>
+        </div>
+        <div onClick={() => changeDirection("back")}>
+          <ArrowButton isSelected={arrowsStates.back}>
+            <KeyboardArrowDownIcon sx={{ fontSize: 100 }} />
+          </ArrowButton>
+        </div>
+      </div>
+      <p style={{ marginLeft: "20px" }}>Velocidade: {speed}</p>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <input
+          style={{ width: "80%" }}
+          type="range"
+          id="volume"
+          name="volume"
+          min="0"
+          max="100"
+          defaultValue={speed}
+          onChange={(event) => setSpeed(event.target.value)}
+        />
+      </div>
     </div>
   );
 }
