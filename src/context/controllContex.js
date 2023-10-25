@@ -35,6 +35,7 @@ export function ControllProvider({ children }) {
   // enviando mensagem ao alterar velocidade
   useEffect(() => {
     publishMessage(lastDirection);
+    // eslint-disable-next-line
   }, [speed, lastDirection]);
 
   //Conexão MQTT
@@ -75,7 +76,8 @@ export function ControllProvider({ children }) {
         console.log("New message: " + payload.toString());
       });
     }
-  }, [connectionStatus, options]);
+    // eslint-disable-next-line
+  }, [connectionStatus]);
 
   const publishMessage = (message) => {
     if (client) {
