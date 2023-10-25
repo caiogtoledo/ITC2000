@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ArrowButton from "./components/arrowButton";
 import { ControllContext } from "./context/controllContex";
 
