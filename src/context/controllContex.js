@@ -8,6 +8,8 @@ export const ControllContext = createContext();
 
 export function ControllProvider({ children }) {
   const [client, setClient] = useState();
+  const [lastDirection, setLastDirection] = useState();
+
   const initialState = {
     forward: false,
     right: false,
@@ -19,6 +21,7 @@ export function ControllProvider({ children }) {
   const [speed, setSpeed] = useState(0);
 
   function changeDirection(direction) {
+    setLastDirection(direction);
     if (arrowsStates[direction]) {
       setArrowsStates(initialState);
     } else {
@@ -29,12 +32,17 @@ export function ControllProvider({ children }) {
     }
   }
 
+  // enviando mensagem ao alterar velocidade
+  useEffect(() => {
+    publishMessage(lastDirection);
+  }, [speed]);
+
   //Conexão MQTT
   const [connectionStatus, setConnectionStatus] = React.useState(false);
   const [messages, setMessages] = React.useState("?");
 
   const host = "wss://mqtt-dashboard.com:8884/mqtt";
-  const clientId = "clientId-zMrdbfXsZ7";
+  const clientId = "clientId-sergiomaua";
 
   const options = {
     keepalive: 60,
@@ -71,7 +79,7 @@ export function ControllProvider({ children }) {
 
   const publishMessage = (message) => {
     if (client) {
-      client.publish("robot-controlls", message);
+      client.publish("robot-controlls", `${message},${speed}`);
     }
   };
 
