@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function ArrowButton({ children, isSelected }) {
   console.log(isSelected);
   return (

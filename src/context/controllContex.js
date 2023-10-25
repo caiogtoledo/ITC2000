@@ -35,7 +35,7 @@ export function ControllProvider({ children }) {
   // enviando mensagem ao alterar velocidade
   useEffect(() => {
     publishMessage(lastDirection);
-  }, [speed]);
+  }, [speed, lastDirection, publishMessage]);
 
   //Conexão MQTT
   const [connectionStatus, setConnectionStatus] = React.useState(false);
@@ -75,7 +75,7 @@ export function ControllProvider({ children }) {
         console.log("New message: " + payload.toString());
       });
     }
-  }, []);
+  }, [connectionStatus, options]);
 
   const publishMessage = (message) => {
     if (client) {
