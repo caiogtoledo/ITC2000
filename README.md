@@ -1,4 +1,4 @@
-# Projeto de Microcontroladores e Sistemas Embarcados (1° SEM)
+# Projeto de Microcontroladores e Sistemas Embarcados (2° SEM)
 
 ## Integrantes
 
@@ -32,6 +32,9 @@ O projeto consiste em um caminhão de sorvete que é controlado remotamente
 ## Controle
 - Projeto ReactJS Hospedado ([Controle](https://icetruckcontrol.netlify.app/))
 - Conexão MQTT com broker público ([HiveMQTT](https://www.hivemq.com/demos/websocket-client/))
+  
+[![controle](https://raw.githubusercontent.com/caiogtoledo/ITC2000/main/videos/controle.png)](https://raw.githubusercontent.com/caiogtoledo/ITC2000/main/videos/controle.png)
+
 
 ## Custos (planilha em: /financeiro)
 ![custos](https://raw.githubusercontent.com/caiogtoledo/ITC2000/main/financeiro/Custos_ITC2000.png)
